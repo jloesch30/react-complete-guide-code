@@ -8,6 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // use callBack keeps the function constant
   const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
@@ -36,6 +37,7 @@ function App() {
 
   useEffect(() => {
     fetchMoviesHandler();
+    // since this is a object and will be not be == when the function re-renders, we have to use the useCallback hook
   }, [fetchMoviesHandler]);
 
   let content = <p>Found no movies.</p>;
