@@ -16,9 +16,11 @@ const SimpleInput = (props) => {
     setEnteredName(event.target.value);
   };
 
+  // this can be attached to the onBlur 
   const nameInputBlurHandler = event => {
     setEnteredNameTouched(true);
 
+    // validation
     if (enteredName.trim() === '') {
       setEnteredNameIsValid(false);
       return;
